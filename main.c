@@ -73,7 +73,7 @@ int main() {
 	servaddr.sin_port = htons(8081); 
   
 	// Binding newly created socket to given IP and verification 
-	if ((bind(sockfd, (const struct sockaddr *)&servaddr, sizeof(servaddr)))) { 
+	if ((bind(sockfd, (const struct sockaddr *)&servaddr, sizeof(servaddr))) != 0) { 
 		printf("socket bind failed...\n"); 
 		exit(0); 
 	} 

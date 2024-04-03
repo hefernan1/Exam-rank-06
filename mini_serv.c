@@ -52,7 +52,7 @@ int main(int ac, char **av) {
 	servaddr.sin_port = htons(atoi(av[1])); 
   
 	// Binding newly created socket to given IP and verification 
-	if ((bind(sockfd, (const struct sockaddr *)&servaddr, sizeof(servaddr))) != 0)
+	if (bind(sockfd, (const struct sockaddr *)&servaddr, sizeof(servaddr)))
 		fatal(FATAL);
 
 	if (listen(sockfd, 10) != 0)
