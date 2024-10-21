@@ -55,8 +55,8 @@ char *str_join(char *buf, char *add)
 
 int main() {
 	int sockfd, connfd, len;
-	struct sockaddr_in servaddr, cli; 
-
+	struct sockaddr_in servaddr, cli; // 1  du petit 1 au 2 tu peux copier coller juste faut remplacer le printf par ta fonction a toi et t'enleves les else
+										//tu copies les includes aussi
 	// socket create and verification 
 	sockfd = socket(AF_INET, SOCK_STREAM, 0); 
 	if (sockfd == -1) { 
@@ -83,7 +83,7 @@ int main() {
 		printf("cannot listen\n"); 
 		exit(0); 
 	}
-	len = sizeof(cli);
+	len = sizeof(cli);  // petit 2
 	connfd = accept(sockfd, (struct sockaddr *)&cli, &len);
 	if (connfd < 0) { 
         printf("server acccept failed...\n"); 

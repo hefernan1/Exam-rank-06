@@ -39,7 +39,7 @@ int main(int ac, char **av) {
 
 	int connfd;
 	socklen_t len;
-	struct sockaddr_in servaddr, cli; 
+	struct sockaddr_in servaddr, cli; // 1
 
 	sockfd = socket(AF_INET, SOCK_STREAM, 0); 
 	if (sockfd == -1)
@@ -58,7 +58,7 @@ int main(int ac, char **av) {
 	if (listen(sockfd, 10) != 0)
 		fatal(FATAL);
 
-	len = sizeof(cli);
+	len = sizeof(cli);  // 2
 	id = 0;
 	maxfd = sockfd;
 	FD_ZERO(&aset);
