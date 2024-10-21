@@ -46,12 +46,10 @@ int main(int ac, char **av) {
 		fatal(FATAL);
 	bzero(&servaddr, sizeof(servaddr)); 
 
-	// assign IP, PORT 
 	servaddr.sin_family = AF_INET; 
 	servaddr.sin_addr.s_addr = htonl(2130706433); //127.0.0.1
 	servaddr.sin_port = htons(atoi(av[1])); 
   
-	// Binding newly created socket to given IP and verification 
 	if (bind(sockfd, (const struct sockaddr *)&servaddr, sizeof(servaddr)))
 		fatal(FATAL);
 
@@ -79,7 +77,6 @@ int main(int ac, char **av) {
 			maxfd = connfd > maxfd ? connfd : maxfd;
 			continue;
 		}
-
 		for (int fd = 2; fd <= maxfd; fd++){
 			if (FD_ISSET(fd, &rset)){
 				int r = 1;
